@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tính Tiền Điện Sinh Hoạt 5 Bậc Mới (Áp dụng 1/11/2026)</title>
+  <meta name="description" content="Công cụ tính tiền điện sinh hoạt biểu giá 5 bậc mới áp dụng từ 1/11/2026 theo quyết định mới nhất. Giao diện công tơ điện tử trực quan, chính xác 100%.">
+  
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300f0ff'><path d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/></svg>">
+
+  <!-- Google Fonts: Be Vietnam Pro & Space Grotesk / Chivo Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Chivo+Mono:ital,wght@0,400;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient cyber energy effects -->
+  <div class="ambient-glow glow-cyan"></div>
+  <div class="ambient-glow glow-amber"></div>
+
+  <!-- Header bar -->
+  <header class="app-header">
+    <div class="container header-container">
+      <div class="brand">
+        <div class="brand-icon">
+          <i data-lucide="zap" class="icon-bolt"></i>
+        </div>
+        <div class="brand-text">
+          <div class="brand-badge">
+            <span class="live-dot"></span> BIỂU GIÁ MỚI TỪ 01/11/2026
+          </div>
+          <h1>CÔNG TƠ ĐIỆN TỬ <span>5 BẬC</span></h1>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button id="btnViewOfficialPrice" class="btn btn-subtle" title="Xem bảng giá gốc ban hành">
+          <i data-lucide="image"></i>
+          <span>Bảng giá gốc</span>
+        </button>
+        <button id="btnThemeToggle" class="btn btn-icon" title="Đổi giao diện Sáng / Tối">
+          <i data-lucide="sun" id="themeIcon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container main-content">
+    
+    <!-- Top Stats Banner -->
+    <section class="quick-banner">
+      <div class="quick-stat-item">
+        <span class="stat-lbl"><i data-lucide="layers"></i> Cơ cấu</span>
+        <span class="stat-val highlight-cyan">5 Bậc sinh hoạt</span>
+      </div>
+      <div class="quick-stat-divider"></div>
+      <div class="quick-stat-item">
+        <span class="stat-lbl"><i data-lucide="trending-up"></i> Bậc 1 ưu đãi</span>
+        <span class="stat-val highlight-green">0 - 100 kWh</span>
+      </div>
+      <div class="quick-stat-divider"></div>
+      <div class="quick-stat-item">
+        <span class="stat-lbl"><i data-lucide="flame"></i> Bậc cao nhất</span>
+        <span class="stat-val highlight-amber">> 700 kWh</span>
+      </div>
+      <div class="quick-stat-divider"></div>
+      <div class="quick-stat-item">
+        <span class="stat-lbl"><i data-lucide="calendar"></i> Hiệu lực</span>
+        <span class="stat-val">01/11/2026</span>
+      </div>
+    </section>
+
+    <div class="app-grid">
+      
+      <!-- LEFT COLUMN: Input & Digital Meter -->
+      <section class="meter-card">
+        
+        <!-- Meter Frame Header -->
+        <div class="meter-header">
+          <div class="meter-model">
+            <span class="meter-brand-name">SMART METER VN-2026</span>
+            <span class="meter-serial">SER: #EVN-5BAC-2026</span>
+          </div>
+          <div class="meter-status">
+            <span class="pulse-indicator"></span>
+            <span class="pulse-label">ĐANG ĐO</span>
+          </div>
+        </div>
+
+        <!-- Mode selector tab -->
+        <div class="input-tabs">
+          <button class="tab-btn active" data-mode="direct" id="tabDirect">
+            <i data-lucide="gauge"></i> Nhập số kWh
+          </button>
+          <button class="tab-btn" data-mode="indexes" id="tabIndexes">
+            <i data-lucide="hash"></i> Chỉ số công tơ
+          </button>
+        </div>
+
+        <!-- Digital LED / LCD Counter Display -->
+        <div class="digital-lcd-wrapper">
+          <div class="digital-lcd-bezel">
+            <div class="lcd-header-info">
+              <span class="lcd-tag"><i data-lucide="activity"></i> TỔNG ĐIỆN NĂNG TIÊU THỤ</span>
+              <span class="lcd-unit-badge">kWh</span>
+            </div>
+            
+            <div class="lcd-digits-container" id="lcdDigits">
+              <!-- Rendered via JS -->
+              <span class="digit-box">0</span>
+              <span class="digit-box">0</span>
+              <span class="digit-box">0</span>
+              <span class="digit-box">3</span>
+              <span class="digit-box">5</span>
+              <span class="digit-box highlight">0</span>
+            </div>
+
+            <div class="lcd-footer-info">
+              <span id="lcdTierLevel">Thuộc Bậc 3 (201 - 400 kWh)</span>
+              <span class="lcd-power-rate"><i data-lucide="zap-fast"></i> 2.894 đ/kWh</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direct Input Form -->
+        <div class="input-section" id="sectionDirect">
+          <label for="kwhInput" class="input-label">
+            <span>Số điện năng tiêu thụ trong tháng:</span>
+            <span class="unit-helper">(kWh / Số điện)</span>
+          </label>
+          
+          <div class="input-number-box">
+            <button class="btn-step" id="btnMinus" title="Giảm 10 kWh">-10</button>
+            <input type="number" id="kwhInput" min="0" max="10000" step="1" value="350" placeholder="Ví dụ: 350">
+            <button class="btn-step" id="btnPlus" title="Tăng 10 kWh">+10</button>
+          </div>
+
+          <!-- Range slider -->
+          <div class="range-container">
+            <input type="range" id="kwhSlider" min="0" max="1200" step="5" value="350" class="neon-slider">
+            <div class="range-marks">
+              <span data-val="0">0</span>
+              <span data-val="100">Bậc 1: 100</span>
+              <span data-val="200">Bậc 2: 200</span>
+              <span data-val="400">Bậc 3: 400</span>
+              <span data-val="700">Bậc 4: 700</span>
+              <span data-val="1000">>700+</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Meter Index Input Form (Hidden by default) -->
+        <div class="input-section hidden" id="sectionIndexes">
+          <div class="index-grid">
+            <div class="form-group">
+              <label for="indexOld">Chỉ số cũ (Đầu kỳ):</label>
+              <div class="input-with-icon">
+                <i data-lucide="corner-left-down"></i>
+                <input type="number" id="indexOld" min="0" step="1" value="1250" placeholder="1250">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="indexNew">Chỉ số mới (Cuối kỳ):</label>
+              <div class="input-with-icon">
+                <i data-lucide="corner-right-up"></i>
+                <input type="number" id="indexNew" min="0" step="1" value="1600" placeholder="1600">
+              </div>
+            </div>
+          </div>
+          <div class="index-calc-note" id="indexCalcNote">
+            Sản lượng = 1600 - 1250 = <strong>350 kWh</strong>
+          </div>
+        </div>
+
+        <!-- Quick Presets -->
+        <div class="presets-section">
+          <span class="presets-title"><i data-lucide="sparkles"></i> Mức tiêu thụ gợi ý:</span>
+          <div class="preset-chips">
+            <button class="chip" data-kwh="80">
+              <i data-lucide="home"></i> Phòng trọ (80 kWh)
+            </button>
+            <button class="chip" data-kwh="220">
+              <i data-lucide="users"></i> Gia đình 2-3 người (220 kWh)
+            </button>
+            <button class="chip active" data-kwh="350">
+              <i data-lucide="wind"></i> Bật 1 điều hòa (350 kWh)
+            </button>
+            <button class="chip" data-kwh="550">
+              <i data-lucide="fan"></i> 2-3 điều hòa (550 kWh)
+            </button>
+            <button class="chip" data-kwh="850">
+              <i data-lucide="building"></i> Biệt thự / Dịch vụ (850 kWh)
+            </button>
+          </div>
+        </div>
+
+        <!-- VAT Setting -->
+        <div class="vat-setting-section">
+          <div class="vat-label">
+            <span><i data-lucide="percent"></i> Thuế GTGT (VAT):</span>
+          </div>
+          <div class="vat-toggle-group">
+            <button class="vat-btn active" data-vat="0.08">8% (Phổ biến)</button>
+            <button class="vat-btn" data-vat="0.10">10% (Tiêu chuẩn)</button>
+            <button class="vat-btn" data-vat="0">0% (Không thuế)</button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- RIGHT COLUMN: Bill Calculation & Breakdown -->
+      <section class="results-column">
+        
+        <!-- Big Bill HUD Card -->
+        <div class="bill-hud-card">
+          <div class="hud-top-meta">
+            <div class="hud-title">
+              <i data-lucide="receipt"></i>
+              <span>TỔNG TIỀN ĐIỆN PHẢI THANH TOÁN</span>
+            </div>
+            <div class="hud-badge" id="hudKwhBadge">350 kWh</div>
+          </div>
+
+          <div class="total-amount-wrapper">
+            <div class="total-amount-display">
+              <span class="currency-symbol">₫</span>
+              <span class="amount-number" id="totalAmount">1.045.332</span>
+            </div>
+            <div class="amount-in-words" id="amountInWords">
+              Bằng chữ: Một triệu không trăm bốn mươi lăm nghìn ba trăm đồng
+            </div>
+          </div>
+
+          <!-- Breakdown mini metrics -->
+          <div class="hud-metrics-grid">
+            <div class="metric-cell">
+              <span class="m-label">Tiền điện chưa thuế:</span>
+              <span class="m-val" id="subtotalAmount">967.900 ₫</span>
+            </div>
+            <div class="metric-cell">
+              <span class="m-label">Thuế GTGT (<span id="vatPercentLabel">8%</span>):</span>
+              <span class="m-val highlight-cyan" id="vatAmount">77.432 ₫</span>
+            </div>
+            <div class="metric-cell">
+              <span class="m-label">Giá điện bình quân:</span>
+              <span class="m-val highlight-amber" id="avgPrice">2.986 ₫/kWh</span>
+            </div>
+          </div>
+
+          <!-- Compare with old 6-tier price -->
+          <div class="compare-card" id="compareCard">
+            <div class="compare-icon">
+              <i data-lucide="arrow-right-left"></i>
+            </div>
+            <div class="compare-info">
+              <div class="compare-heading">
+                <span>So với biểu giá 6 bậc cũ:</span>
+                <span class="compare-delta" id="compareDelta">+14.200 ₫ (+1.4%)</span>
+              </div>
+              <p class="compare-desc" id="compareDesc">
+                Biểu giá 5 bậc mới gom bậc 0-100 kWh giá rẻ, nhưng các bậc cao có biên độ điều chỉnh phù hợp.
+              </p>
+            </div>
+          </div>
+
+          <!-- Action buttons: Copy / Share / Print -->
+          <div class="bill-actions">
+            <button id="btnCopyResult" class="btn btn-action" title="Sao chép chi tiết hóa đơn">
+              <i data-lucide="copy"></i>
+              <span>Sao chép kết quả</span>
+            </button>
+            <button id="btnShareLink" class="btn btn-action" title="Chia sẻ liên kết kèm số điện">
+              <i data-lucide="share-2"></i>
+              <span>Chia sẻ link</span>
+            </button>
+            <button id="btnPrintBill" class="btn btn-action" title="In hoặc lưu hóa đơn PDF">
+              <i data-lucide="printer"></i>
+              <span>In hóa đơn</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Detailed 5-Tier Breakdown Card -->
+        <div class="breakdown-card">
+          <div class="card-header">
+            <div class="card-title">
+              <i data-lucide="bar-chart-3"></i>
+              <span>CHI TIẾT PHÂN BỔ 5 BẬC THANG</span>
+            </div>
+            <span class="effective-date">Theo QĐ 1/11/2026</span>
+          </div>
+
+          <!-- Visual segmented energy bar -->
+          <div class="energy-segmented-bar" id="segmentedBar">
+            <div class="seg-fill seg-tier-1" style="width: 28.5%;" title="Bậc 1: 100 kWh"></div>
+            <div class="seg-fill seg-tier-2" style="width: 28.5%;" title="Bậc 2: 100 kWh"></div>
+            <div class="seg-fill seg-tier-3" style="width: 43.0%;" title="Bậc 3: 150 kWh"></div>
+            <div class="seg-fill seg-tier-4" style="width: 0%;" title="Bậc 4: 0 kWh"></div>
+            <div class="seg-fill seg-tier-5" style="width: 0%;" title="Bậc 5: 0 kWh"></div>
+          </div>
+
+          <!-- Tier List Items -->
+          <div class="tier-list" id="tierList">
+            <!-- Rendered by JS -->
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- Official Pricing Table Accordion / Card -->
+    <section class="official-table-card">
+      <div class="card-header">
+        <div class="card-title">
+          <i data-lucide="table"></i>
+          <span>BẢNG CƠ CẤU GIÁ BÁN LẺ ĐIỆN SINH HOẠT 5 BẬC (TỪ 01/11/2026)</span>
+        </div>
+        <span class="badge-official"><i data-lucide="shield-check"></i> Văn bản chính thức</span>
+      </div>
+
+      <div class="table-responsive">
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>Bậc</th>
+              <th>Mức tiêu thụ</th>
+              <th>Đơn giá (chưa VAT)</th>
+              <th>Đơn giá (VAT 8%)</th>
+              <th>Đơn giá (VAT 10%)</th>
+              <th>Đặc điểm điều chỉnh</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tier-pill t1">Bậc 1</span></td>
+              <td><strong>Từ 0 - 100 kWh</strong></td>
+              <td class="price-val">1.901 đ/kWh</td>
+              <td>2.053 đ/kWh</td>
+              <td>2.091 đ/kWh</td>
+              <td>Gộp bậc 1 và bậc 2 cũ (0-50 và 51-100), hỗ trợ hộ dùng ít</td>
+            </tr>
+            <tr>
+              <td><span class="tier-pill t2">Bậc 2</span></td>
+              <td><strong>Từ 101 - 200 kWh</strong></td>
+              <td class="price-val">2.289 đ/kWh</td>
+              <td>2.472 đ/kWh</td>
+              <td>2.518 đ/kWh</td>
+              <td>Áp dụng cho mức dùng vừa phải của hộ gia đình nhỏ</td>
+            </tr>
+            <tr>
+              <td><span class="tier-pill t3">Bậc 3</span></td>
+              <td><strong>Từ 201 - 400 kWh</strong></td>
+              <td class="price-val">2.894 đ/kWh</td>
+              <td>3.126 đ/kWh</td>
+              <td>3.183 đ/kWh</td>
+              <td>Khung rộng 200 kWh (từ 201 đến 400) cho hộ gia đình phổ thông</td>
+            </tr>
+            <tr>
+              <td><span class="tier-pill t4">Bậc 4</span></td>
+              <td><strong>Từ 401 - 700 kWh</strong></td>
+              <td class="price-val">3.456 đ/kWh</td>
+              <td>3.732 đ/kWh</td>
+              <td>3.802 đ/kWh</td>
+              <td>Khung rộng 300 kWh cho hộ có nhiều thiết bị điện / điều hòa</td>
+            </tr>
+            <tr>
+              <td><span class="tier-pill t5">Bậc 5</span></td>
+              <td><strong>Từ 701 kWh trở lên</strong></td>
+              <td class="price-val">3.844 đ/kWh</td>
+              <td>4.152 đ/kWh</td>
+              <td>4.228 đ/kWh</td>
+              <td>Bậc cao nhất cho hộ tiêu thụ quy mô lớn / biệt thự</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FAQ & Energy Saving Tips -->
+    <section class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-icon"><i data-lucide="info"></i></div>
+        <h3>Điểm mới của biểu giá 5 bậc</h3>
+        <p>Bậc 1 mới được nới rộng từ 50 kWh lên 100 kWh giúp nhóm khách hàng sử dụng điện sinh hoạt tối thiểu và các hộ nghèo, gia đình khó khăn được hưởng mức giá ưu đãi lớn hơn.</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-icon"><i data-lucide="lightbulb"></i></div>
+        <h3>Mẹo tiết kiệm điện hiệu quả</h3>
+        <p>Cài đặt điều hòa nhiệt độ từ 26-28°C kết hợp quạt điện, tắt thiết bị khi không sử dụng và tận dụng ánh sáng tự nhiên để tránh đẩy sản lượng điện nhảy sang Bậc 4 & Bậc 5.</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-icon"><i data-lucide="calculator"></i></div>
+        <h3>Cách tính lũy tiến từng bậc</h3>
+        <p>Số tiền điện không nhân toàn bộ với 1 đơn giá, mà chia theo từng khoảng bậc kWh tương ứng nhân với đơn giá bậc đó, sau đó cộng tổng lại và tính thuế GTGT.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal xem ảnh bảng giá gốc -->
+  <div class="modal-backdrop" id="imageModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title">
+          <i data-lucide="file-text"></i>
+          <span>BẢNG GIÁ GỐC ÁP DỤNG TỪ 01/11/2026</span>
+        </div>
+        <button class="btn-close-modal" id="btnCloseModal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="assets/bieu-gia-dien-5-bac.jpg" alt="Biểu giá bán lẻ điện sinh hoạt 5 bậc áp dụng từ 01/11/2026" class="img-official-price">
+      </div>
+      <div class="modal-footer">
+        <span>Nguồn: Biểu giá bán lẻ điện sinh hoạt 5 bậc được ban hành mới nhất</span>
+        <button class="btn btn-subtle" id="btnCloseModal2">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toastMessage">
+    <i data-lucide="check-circle" class="toast-icon"></i>
+    <span id="toastText">Đã sao chép vào bộ nhớ tạm!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <p><strong>Công Cụ Tính Tiền Điện Sinh Hoạt 5 Bậc</strong> &bull; Áp dụng chính thức từ 01/11/2026</p>
+        <p class="footer-sub">Thiết kế chuẩn font Be Vietnam Pro, giao diện công tơ điện tử hiện đại.</p>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/Nsnnam/tinh-tien-dien-5-bac" target="_blank" rel="noopener noreferrer" class="github-link">
+          <i data-lucide="github"></i>
+          <span>Mã nguồn trên GitHub</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
