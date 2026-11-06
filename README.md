@@ -1,58 +1,63 @@
-# ⚡ Công Cụ Tính Tiền Điện Sinh Hoạt 5 Bậc Mới (Áp dụng từ 01/11/2026)
+# ⚡ Công Cụ So Sánh & Tính Tiền Điện Sinh Hoạt: 5 Bậc Mới (01/11/2026) vs 6 Bậc Cũ
 
-> Web app tra cứu và tính toán số tiền điện sinh hoạt hàng tháng theo **Biểu giá bán lẻ điện sinh hoạt 5 bậc** mới nhất, áp dụng chính thức từ ngày **01/11/2026**.
+> Web app đối chiếu trực tiếp chi phí tiền điện sinh hoạt hàng tháng giữa **Biểu giá bán lẻ 5 bậc mới** (áp dụng từ **01/11/2026**) và **Biểu giá 6 bậc cũ** (Quyết định 2699/QĐ-BCT hiện hành).
 
-🌐 **Dùng thử trực tiếp trên Web:** [https://nsnnam.github.io/tinh-tien-dien-5-bac/](https://nsnnam.github.io/tinh-tien-dien-5-bac/)
-
----
-
-## 📸 Biểu Giá Bán Lẻ Điện Sinh Hoạt 5 Bậc Mới
-
-| Bậc | Khoảng kWh tiêu thụ | Đơn giá (chưa VAT) | Ghi chú & Đặc điểm |
-| :---: | :--- | :---: | :--- |
-| **Bậc 1** | **Từ 0 - 100 kWh** | **1.901 đ/kWh** | Nới rộng từ 50 lên 100 kWh, hỗ trợ tối đa hộ dùng ít & hộ khó khăn |
-| **Bậc 2** | **Từ 101 - 200 kWh** | **2.289 đ/kWh** | Áp dụng cho mức dùng vừa phải của hộ gia đình nhỏ |
-| **Bậc 3** | **Từ 201 - 400 kWh** | **2.894 đ/kWh** | Khung rộng 200 kWh cho hộ phổ thông dùng các thiết bị cơ bản |
-| **Bậc 4** | **Từ 401 - 700 kWh** | **3.456 đ/kWh** | Khung rộng 300 kWh cho gia đình dùng nhiều máy lạnh/thiết bị điện |
-| **Bậc 5** | **Từ 701 kWh trở lên** | **3.844 đ/kWh** | Bậc cao nhất nhằm khuyến khích sử dụng điện tiết kiệm |
+🌐 **Trải nghiệm trực tuyến trên Web:** [https://nsnnam.github.io/tinh-tien-dien-5-bac/](https://nsnnam.github.io/tinh-tien-dien-5-bac/)
 
 ---
 
-## ✨ Điểm Nổi Bật Của Ứng Dụng
+## 📊 Bảng Đối Chiếu Đoạn Thang Chi Tiết (Cũ vs Mới)
 
-- **Giao diện công tơ điện tử thông minh (Smart Electric Meter HUD):** Màn hình LED/LCD 6 chữ số phát quang phong cách điện tử hiện đại, đèn tín hiệu PULSE nhấp nháy chân thực.
-- **Font chữ Be Vietnam Pro:** Chuẩn font tiếng Việt sắc nét, hiện đại kết hợp font số digital monospace.
-- **Tính toán thời gian thực (Real-time):** Chỉ cần nhập số lượng điện (kWh) hoặc kéo thanh trượt là ra ngay số tiền phải trả.
-- **Đọc số tiền thành chữ tiếng Việt:** Tự động chuyển đổi chính xác (Ví dụ: *Một triệu không trăm bốn mươi lăm nghìn ba trăm ba mươi hai đồng*).
-- **Hỗ trợ 2 chế độ nhập liệu:**
-  1. Nhập trực tiếp số kWh tiêu thụ.
-  2. Nhập theo chỉ số công tơ (Chỉ số đầu kỳ - Chỉ số cuối kỳ).
-- **So sánh trực quan với Biểu giá 6 bậc cũ:** Cho biết ngay gia đình bạn tăng hay giảm bao nhiêu nghìn đồng khi chuyển sang biểu giá mới.
-- **Phân bổ chi tiết 5 bậc:** Thanh biểu đồ năng lượng đa màu hiển thị trực quan lượng điện đã dùng ở từng bậc.
-- **Tùy chọn thuế GTGT (VAT):** 8% (phổ biến), 10% (tiêu chuẩn), hoặc 0% (chưa thuế).
-- **Nút tiện ích:**
-  - 📋 *Sao chép kết quả* gửi nhanh qua Zalo/tin nhắn.
-  - 🔗 *Chia sẻ liên kết* lưu sẵn số kWh trên URL.
-  - 🖨️ *In hóa đơn* theo mẫu phiếu thu đẹp mắt.
-  - 🖼️ *Xem ảnh gốc văn bản* ban hành biểu giá.
-- **Chế độ Sáng / Tối (Dark / Light mode):** Tự động lưu lựa chọn của người dùng.
-- **Không phụ thuộc thư viện nặng (Zero-dependency):** Tải trang tức thì trong 0.2s, chạy mượt trên mọi thiết bị di động và máy tính.
+| Đoạn tiêu thụ | Quy đổi tương đương | Đơn giá Cũ | Đơn giá Mới | Chênh lệch đơn giá | % Tăng/Giảm |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **0 – 50 kWh** | Cũ B1 / Mới B1 | 1.984 đ/kWh | **1.901 đ/kWh** | -83 đ/kWh | **-4.18%** |
+| **51 – 100 kWh** | Cũ B2 / Mới B1 | 2.050 đ/kWh | **1.901 đ/kWh** | -149 đ/kWh | **-7.27%** |
+| **101 – 200 kWh** | Cũ B3 / Mới B2 | 2.380 đ/kWh | **2.289 đ/kWh** | -91 đ/kWh | **-3.82%** |
+| **201 – 300 kWh** | Cũ B4 / Mới B3 | 2.998 đ/kWh | **2.894 đ/kWh** | -104 đ/kWh | **-3.47%** |
+| **301 – 400 kWh** | Cũ B5 / Mới B3 | 3.350 đ/kWh | **2.894 đ/kWh** | -456 đ/kWh | **-13.61%** |
+| **401 – 700 kWh** | Cũ B6 / Mới B4 | 3.460 đ/kWh | **3.456 đ/kWh** | -4 đ/kWh | **-0.12%** |
+| **Từ 701 kWh trở lên** | Cũ B6 / Mới B5 | 3.460 đ/kWh | **3.844 đ/kWh** | +384 đ/kWh | **+11.10%** |
+
+---
+
+## 🎯 Điểm Nổi Bật Đã Cập Nhật
+
+1. **Bộ điều khiển công tơ điện tử nổi bật ở đầu trang:**
+   - Dễ nhìn, thao tác tức thì ngay khi mở trang.
+   - Hỗ trợ cả 2 chế độ:
+     * **⚡ Nhập nhanh số kWh** với các nút bước nhảy `+10`, `+50`, `-10`, `-50` và thanh trượt trực quan.
+     * **🔢 Nhập theo chỉ số công tơ** (Chỉ số mới - Chỉ số cũ) với màn hình tính toán sản lượng tự động.
+   - Các nút chọn nhanh mức dùng thực tế (Tháng gần đây 348 kWh, Tháng trước 293 kWh, Cao điểm 340 kWh,...).
+
+2. **So sánh trực tiếp chi phí Cũ vs Mới (Side-by-Side Dual Deck):**
+   - Đặt 2 biểu giá song song để thấy rõ sự khác biệt.
+   - Huy hiệu chênh lệch tự động: hiển thị số tiền **Tiết kiệm được** hoặc **Chi phí tăng** cùng tỷ lệ %.
+   - Khối phân tích tự động giải thích chi tiết nguyên nhân tăng/giảm theo từng mức điện.
+
+3. **Bảng phân rã chi tiết 7 đoạn thang tiêu thụ:**
+   - Cung cấp đầy đủ số liệu cho từng đoạn (Sản lượng, Đơn giá cũ/mới, Thành tiền cũ/mới, Tiền chênh lệch, % chênh lệch).
+   - Tự động highlight đoạn điện mà hộ gia đình đang tiêu thụ.
+
+4. **Tính toán chính xác 100% theo thực tế:**
+   - Áp dụng chuẩn biểu giá cũ theo Quyết định 2699/QĐ-BCT và biểu giá mới từ 01/11/2026.
+   - Thuế GTGT tùy chọn linh hoạt 8% (thực tế hóa đơn), 10% hoặc 0%.
+   - Đọc số tiền thành chữ tiếng Việt chuẩn xác.
+
+5. **Bảo mật thông tin:**
+   - Tuyệt đối không lưu trữ hay để lộ thông tin cá nhân, mã khách hàng hoặc địa chỉ sử dụng điện.
 
 ---
 
 ## 🚀 Cài Đặt & Chạy Cục Bộ (Local)
 
-Chỉ cần clone repository và mở file `index.html` trong bất kỳ trình duyệt nào:
-
 ```bash
 git clone https://github.com/Nsnnam/tinh-tien-dien-5-bac.git
 cd tinh-tien-dien-5-bac
-# Mở trực tiếp file index.html hoặc dùng live server
+# Mở trực tiếp file index.html trên bất kỳ trình duyệt nào
 ```
 
 ---
 
 ## 📄 Bản Quyền & Nguồn Dữ Liệu
-
-- Dữ liệu biểu giá được trích xuất từ văn bản chính thức về Biểu giá bán lẻ điện sinh hoạt 5 bậc áp dụng từ ngày 01/11/2026.
+- Nguồn biểu giá: Văn bản chính thức về Biểu giá bán lẻ điện sinh hoạt 5 bậc áp dụng từ ngày 01/11/2026 và Quyết định 2699/QĐ-BCT.
 - Giấy phép mã nguồn: MIT License.
